@@ -11,7 +11,7 @@ Aplikasi prototype rental mobil adalah suatu bentuk rancangan awal dari aplikasi
 
 - Elizabeth Queeny / 71210777
 - Andreas Sibua / 71210781
-- Oktavianus Bima Jadiva / 71210781
+- Oktavianus Bima Jadiva / 71210786
 
 # Fitur aplikasi rental mobil
 
