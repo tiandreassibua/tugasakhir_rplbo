@@ -26,7 +26,7 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("admin-dashboard.fxml"));
         fxmlLoader.getClass();
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("Dashboard Admin");
         stage.setScene(scene);
         stage.show();
     }
