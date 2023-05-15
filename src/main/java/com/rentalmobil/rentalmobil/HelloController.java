@@ -13,8 +13,26 @@ import java.io.IOException;
 
 public class HelloController {
 
+    public void toAdminDashboard(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("admin-dashboard.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
     public void toDataMobilAdmin(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("datamobil-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toDataMerkAdmin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("datamerk-admin.fxml"));
         Scene sceneMenu = new Scene(toMenu);
         Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
 
@@ -76,7 +94,7 @@ public class HelloController {
         stageMenu.show();
     }
 
-    public void toLogout(ActionEvent eventMenu) throws IOException {
+    public void onBtnLogoutClicked(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("Login.fxml"));
         Scene sceneMenu = new Scene(toMenu);
         Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
