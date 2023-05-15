@@ -28,4 +28,13 @@ public class HelloController {
         stageMenu.setScene(sceneMenu);
         stageMenu.show();
     }
+
+    public void toDataPemesananAdmin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("datapemesanan-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
 }
