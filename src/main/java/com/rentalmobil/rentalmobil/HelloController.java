@@ -12,13 +12,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloController {
-    @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-    }
 
     public void toDataMobilAdmin(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("datamobil-admin.fxml"));
@@ -31,6 +24,69 @@ public class HelloController {
 
     public void toDataPemesananAdmin(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("datapemesanan-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toDataPerjalananAdmin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("dataperjalanan-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toDataPesananAdmin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("datapesanan-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toManajemenAkunAdmin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("manajemenakun-admin.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toPilihMobil(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("pilihmobil.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toSewaMobil(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("sewa-mobil.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toLogout(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toDetailMobil(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("detail-mobil.fxml"));
         Scene sceneMenu = new Scene(toMenu);
         Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
 
