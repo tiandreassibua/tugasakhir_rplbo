@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
    <children>
       <AnchorPane prefHeight="462.0" prefWidth="603.0">
          <children>
@@ -49,7 +49,7 @@
                   <URL value="@form.css" />
                </stylesheets>
             </AnchorPane>
-            <Button layoutX="217.0" layoutY="150.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="208.0" styleClass="submit-button" text="Pilih Mobil">
+            <Button layoutX="217.0" layoutY="150.0" mnemonicParsing="false" onAction="#toPilihMobil" prefHeight="89.0" prefWidth="208.0" styleClass="submit-button" text="Pilih Mobil">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -57,7 +57,7 @@
                   <URL value="@buttonDesign.css" />
                </stylesheets>
             </Button>
-            <Button layoutX="500.0" layoutY="150.0" mnemonicParsing="false" prefHeight="89.0" prefWidth="208.0" styleClass="mobilDisewa-button" text="Mobil Yang Disewa">
+            <Button layoutX="500.0" layoutY="150.0" mnemonicParsing="false" onAction="#toMobilYangDisewa" prefHeight="89.0" prefWidth="208.0" styleClass="mobilDisewa-button" text="Mobil Yang Disewa">
                <stylesheets>
                   <URL value="@buttonDesign.css" />
                </stylesheets>

@@ -22,6 +22,15 @@ public class HelloController {
         stageMenu.show();
     }
 
+    public void toUserDashboard(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
     public void toDataMobilAdmin(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("datamobil-admin.fxml"));
         Scene sceneMenu = new Scene(toMenu);
@@ -103,8 +112,35 @@ public class HelloController {
         stageMenu.show();
     }
 
+    public void toRegister(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("register.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toLogin(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
     public void toDetailMobil(ActionEvent eventMenu) throws IOException {
         Parent toMenu = FXMLLoader.load(getClass().getResource("detail-mobil.fxml"));
+        Scene sceneMenu = new Scene(toMenu);
+        Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
+
+        stageMenu.setScene(sceneMenu);
+        stageMenu.show();
+    }
+
+    public void toMobilYangDisewa(ActionEvent eventMenu) throws IOException {
+        Parent toMenu = FXMLLoader.load(getClass().getResource("mobilyangdisewa.fxml"));
         Scene sceneMenu = new Scene(toMenu);
         Stage stageMenu = (Stage) ((Node) eventMenu.getSource()).getScene().getWindow();
 

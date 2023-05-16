@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
    <children>
       <AnchorPane prefHeight="890.0" prefWidth="1071.0">
          <children>
@@ -51,7 +51,7 @@
                      </font>
                   </Label>
                   <Button layoutX="17.0" layoutY="694.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Logout" />
-                  <Button layoutX="15.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE">
+                  <Button layoutX="15.0" layoutY="72.0" mnemonicParsing="false" onAction="#toAdminDashboard" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE">
                      <font>
                         <Font size="10.0" />
                      </font>
