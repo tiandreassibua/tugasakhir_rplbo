@@ -11,11 +11,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="729.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
    <children>
       <AnchorPane prefHeight="462.0" prefWidth="603.0">
          <children>
-            <AnchorPane prefHeight="736.0" prefWidth="149.0" styleClass="form">
+            <AnchorPane prefHeight="715.0" prefWidth="184.0" styleClass="form">
                <children>
                   <Line endX="10.399917602539062" endY="592.4000244140625" layoutX="172.0" layoutY="142.0" startX="10.399948120117188" startY="-142.0" strokeWidth="0.4" />
                   <Line endX="71.19999694824219" endY="-7.62939453125E-6" layoutX="92.0" layoutY="70.0" startX="-73.5071029663086" startY="-7.62939453125E-6" strokeWidth="0.4" />
@@ -33,7 +33,8 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Button layoutX="19.0" layoutY="201.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Dashboard" />
+                  <Button layoutX="20.0" layoutY="208.0" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-padding: 0;" text="Dashboard" textFill="#9e9e9e" />
+                  <Button layoutX="16.0" layoutY="677.0" mnemonicParsing="false" onAction="#onBtnLogoutClicked" prefHeight="30.0" prefWidth="154.0" text="Logout" />
                </children>
                <stylesheets>
                   <URL value="@form.css" />

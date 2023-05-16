@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="973.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="973.0" prefWidth="964.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
    <children>
       <AnchorPane prefHeight="890.0" prefWidth="1071.0">
          <children>
@@ -30,7 +30,7 @@
                   <Line endX="71.19999694824219" endY="-7.62939453125E-6" layoutX="93.0" layoutY="180.0" startX="-73.5071029663086" startY="-7.62939453125E-6" strokeWidth="0.4" />
                   <Line endX="71.19999694824219" endY="-7.62939453125E-6" layoutX="93.0" layoutY="229.0" startX="-73.5071029663086" startY="-7.62939453125E-6" strokeWidth="0.4" />
                   <Line endX="71.19999694824219" endY="-7.62939453125E-6" layoutX="92.0" layoutY="304.0" startX="-73.5071029663086" startY="-7.62939453125E-6" strokeWidth="0.4" />
-                  <Button layoutX="17.0" layoutY="924.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="154.0" text="Logout" />
+                  <Button layoutX="17.0" layoutY="924.0" mnemonicParsing="false" onAction="#onBtnLogoutClicked" prefHeight="30.0" prefWidth="154.0" text="Logout" />
                </children>
                <stylesheets>
                   <URL value="@form.css" />
@@ -156,7 +156,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="15.0" layoutY="72.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE">
+            <Button layoutX="15.0" layoutY="72.0" mnemonicParsing="false" onAction="#toAdminDashboard" style="-fx-background-color: transparent;" text="Dashboard" textFill="WHITE">
                <font>
                   <Font size="10.0" />
                </font>
