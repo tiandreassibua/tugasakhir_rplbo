@@ -8,12 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="487.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rentalmobil.rentalmobil.HelloController">
    <children>
       <AnchorPane prefHeight="454.0" prefWidth="600.0">
          <children>
-            <AnchorPane layoutX="55.0" layoutY="23.0" prefHeight="438.0" prefWidth="490.0" style="-fx-background-radius: 10;" styleClass="form">
+            <AnchorPane layoutX="55.0" layoutY="23.0" prefHeight="452.0" prefWidth="490.0" style="-fx-background-radius: 10;" styleClass="form">
                <children>
                   <Label layoutX="186.0" layoutY="31.0" stylesheets="@form.css" text="Register" textAlignment="CENTER" textFill="WHITE">
                      <font>
@@ -26,7 +27,7 @@
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </opaqueInsets>
                   </TextField>
-                  <Button layoutX="72.0" layoutY="367.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="346.0" styleClass="submit-button" text="Login" textFill="WHITE">
+                  <Button layoutX="72.0" layoutY="367.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="346.0" styleClass="submit-button" text="Register" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -46,6 +47,8 @@
                   <URL value="@form.css" />
                </stylesheets>
             </AnchorPane>
+            <Text fill="WHITE" layoutX="226.0" layoutY="454.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sudah Punya Akun? " />
+            <Button layoutX="325.0" layoutY="436.0" mnemonicParsing="false" onAction="#toLogin" style="-fx-background-color: transparent;" styleClass="register" stylesheets="@form.css" text="Login" textFill="#00ffb2" underline="true" />
          </children>
       </AnchorPane>
    </children>
