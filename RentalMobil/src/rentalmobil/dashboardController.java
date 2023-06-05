@@ -127,22 +127,22 @@ public class dashboardController implements Initializable {
     private TextField availableCars_price;
 
     @FXML
-    private TableView<carData> availableCars_tableView;
+    private TableView<carrentalmanagementsystem.carData> availableCars_tableView;
 
     @FXML
-    private TableColumn<carData, String> availableCars_col_carId;
+    private TableColumn<carrentalmanagementsystem.carData, String> availableCars_col_carId;
 
     @FXML
-    private TableColumn<carData, String> availableCars_col_brand;
+    private TableColumn<carrentalmanagementsystem.carData, String> availableCars_col_brand;
 
     @FXML
-    private TableColumn<carData, String> availableCars_col_model;
+    private TableColumn<carrentalmanagementsystem.carData, String> availableCars_col_model;
 
     @FXML
-    private TableColumn<carData, String> availableCars_col_price;
+    private TableColumn<carrentalmanagementsystem.carData, String> availableCars_col_price;
 
     @FXML
-    private TableColumn<carData, String> availableCars_col_status;
+    private TableColumn<carrentalmanagementsystem.carData, String> availableCars_col_status;
 
     @FXML
     private TextField availableCars_search;
@@ -190,22 +190,22 @@ public class dashboardController implements Initializable {
     private AnchorPane home_form;
 
     @FXML
-    private TableView<carData> rent_tableView;
+    private TableView<carrentalmanagementsystem.carData> rent_tableView;
 
     @FXML
-    private TableColumn<carData, String> rent_col_carId;
+    private TableColumn<carrentalmanagementsystem.carData, String> rent_col_carId;
 
     @FXML
-    private TableColumn<carData, String> rent_col_brand;
+    private TableColumn<carrentalmanagementsystem.carData, String> rent_col_brand;
 
     @FXML
-    private TableColumn<carData, String> rent_col_model;
+    private TableColumn<carrentalmanagementsystem.carData, String> rent_col_model;
 
     @FXML
-    private TableColumn<carData, String> rent_col_price;
+    private TableColumn<carrentalmanagementsystem.carData, String> rent_col_price;
 
     @FXML
-    private TableColumn<carData, String> rent_col_status;
+    private TableColumn<carrentalmanagementsystem.carData, String> rent_col_status;
 
 //    DATABASE TOOLS
     private Connection connect;
@@ -335,7 +335,7 @@ public class dashboardController implements Initializable {
                     || availableCars_model.getText().isEmpty()
                     || availableCars_status.getSelectionModel().getSelectedItem() == null
                     || availableCars_price.getText().isEmpty()
-                    || getData.path == null || getData.path == "") {
+                    || carrentalmanagementsystem.getData.path == null || carrentalmanagementsystem.getData.path == "") {
                 alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
@@ -349,7 +349,7 @@ public class dashboardController implements Initializable {
                 prepare.setString(4, availableCars_price.getText());
                 prepare.setString(5, (String) availableCars_status.getSelectionModel().getSelectedItem());
 
-                String uri = getData.path;
+                String uri = carrentalmanagementsystem.getData.path;
                 uri = uri.replace("\\", "\\\\");
 
                 prepare.setString(6, uri);
@@ -378,7 +378,7 @@ public class dashboardController implements Initializable {
 
     public void availableCarUpdate() {
 
-        String uri = getData.path;
+        String uri = carrentalmanagementsystem.getData.path;
         uri = uri.replace("\\", "\\\\");
 
         String sql = "UPDATE car SET brand = '" + availableCars_brand.getText() + "', model = '"
@@ -397,7 +397,7 @@ public class dashboardController implements Initializable {
                     || availableCars_model.getText().isEmpty()
                     || availableCars_status.getSelectionModel().getSelectedItem() == null
                     || availableCars_price.getText().isEmpty()
-                    || getData.path == null || getData.path == "") {
+                    || carrentalmanagementsystem.getData.path == null || carrentalmanagementsystem.getData.path == "") {
                 alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
@@ -444,7 +444,7 @@ public class dashboardController implements Initializable {
                     || availableCars_model.getText().isEmpty()
                     || availableCars_status.getSelectionModel().getSelectedItem() == null
                     || availableCars_price.getText().isEmpty()
-                    || getData.path == null || getData.path == "") {
+                    || carrentalmanagementsystem.getData.path == null || carrentalmanagementsystem.getData.path == "") {
                 alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
@@ -485,7 +485,7 @@ public class dashboardController implements Initializable {
         availableCars_status.getSelectionModel().clearSelection();
         availableCars_price.setText("");
 
-        getData.path = "";
+        carrentalmanagementsystem.getData.path = "";
 
         availableCars_imageView.setImage(null);
 
@@ -515,7 +515,7 @@ public class dashboardController implements Initializable {
 
         if (file != null) {
 
-            getData.path = file.getAbsolutePath();
+            carrentalmanagementsystem.getData.path = file.getAbsolutePath();
 
             image = new Image(file.toURI().toString(), 116, 153, false, true);
             availableCars_imageView.setImage(image);
@@ -524,9 +524,9 @@ public class dashboardController implements Initializable {
 
     }
 
-    public ObservableList<carData> availableCarListData() {
+    public ObservableList<carrentalmanagementsystem.carData> availableCarListData() {
 
-        ObservableList<carData> listData = FXCollections.observableArrayList();
+        ObservableList<carrentalmanagementsystem.carData> listData = FXCollections.observableArrayList();
 
         String sql = "SELECT * FROM car";
 
@@ -536,10 +536,10 @@ public class dashboardController implements Initializable {
             prepare = connect.prepareStatement(sql);
             result = prepare.executeQuery();
 
-            carData carD;
+            carrentalmanagementsystem.carData carD;
 
             while (result.next()) {
-                carD = new carData(result.getInt("car_id"),
+                carD = new carrentalmanagementsystem.carData(result.getInt("car_id"),
                          result.getString("brand"),
                          result.getString("model"),
                          result.getDouble("price"),
@@ -556,7 +556,7 @@ public class dashboardController implements Initializable {
         return listData;
     }
 
-    private ObservableList<carData> availableCarList;
+    private ObservableList<carrentalmanagementsystem.carData> availableCarList;
 
     public void availableCarShowListData() {
         availableCarList = availableCarListData();
@@ -572,7 +572,7 @@ public class dashboardController implements Initializable {
 
     public void availableCarSearch() {
 
-        FilteredList<carData> filter = new FilteredList<>(availableCarList, e -> true);
+        FilteredList<carrentalmanagementsystem.carData> filter = new FilteredList<>(availableCarList, e -> true);
 
         availableCars_search.textProperty().addListener((Observable, oldValue, newValue) -> {
 
@@ -600,7 +600,7 @@ public class dashboardController implements Initializable {
             });
         });
 
-        SortedList<carData> sortList = new SortedList<>(filter);
+        SortedList<carrentalmanagementsystem.carData> sortList = new SortedList<>(filter);
 
         sortList.comparatorProperty().bind(availableCars_tableView.comparatorProperty());
         availableCars_tableView.setItems(sortList);
@@ -608,7 +608,7 @@ public class dashboardController implements Initializable {
     }
 
     public void availableCarSelect() {
-        carData carD = availableCars_tableView.getSelectionModel().getSelectedItem();
+        carrentalmanagementsystem.carData carD = availableCars_tableView.getSelectionModel().getSelectedItem();
         int num = availableCars_tableView.getSelectionModel().getSelectedIndex();
 
         if ((num - 1) < - 1) {
@@ -620,7 +620,7 @@ public class dashboardController implements Initializable {
         availableCars_model.setText(carD.getModel());
         availableCars_price.setText(String.valueOf(carD.getPrice()));
 
-        getData.path = carD.getImage();
+        carrentalmanagementsystem.getData.path = carD.getImage();
 
         String uri = "file:" + carD.getImage();
 
@@ -762,9 +762,9 @@ public class dashboardController implements Initializable {
         
     }
 
-    public ObservableList<carData> rentCarListData() {
+    public ObservableList<carrentalmanagementsystem.carData> rentCarListData() {
 
-        ObservableList<carData> listData = FXCollections.observableArrayList();
+        ObservableList<carrentalmanagementsystem.carData> listData = FXCollections.observableArrayList();
 
         String sql = "SELECT * FROM car";
 
@@ -774,10 +774,10 @@ public class dashboardController implements Initializable {
             prepare = connect.prepareStatement(sql);
             result = prepare.executeQuery();
 
-            carData carD;
+            carrentalmanagementsystem.carData carD;
 
             while (result.next()) {
-                carD = new carData(result.getInt("car_id"), result.getString("brand"),
+                carD = new carrentalmanagementsystem.carData(result.getInt("car_id"), result.getString("brand"),
                          result.getString("model"), result.getDouble("price"),
                          result.getString("status"),
                          result.getString("image"),
@@ -944,7 +944,7 @@ public class dashboardController implements Initializable {
 
     }
 
-    private ObservableList<carData> rentCarList;
+    private ObservableList<carrentalmanagementsystem.carData> rentCarList;
 
     public void rentCarShowListData() {
         rentCarList = rentCarListData();
@@ -959,7 +959,7 @@ public class dashboardController implements Initializable {
     }
 
     public void displayUsername() {
-        String user = getData.username;
+        String user = carrentalmanagementsystem.getData.username;
         // TO SET THE FIRST LETTER TO BIG LETTER
         username.setText(user.substring(0, 1).toUpperCase() + user.substring(1));
 
