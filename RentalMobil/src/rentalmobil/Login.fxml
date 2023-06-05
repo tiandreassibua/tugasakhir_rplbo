@@ -25,7 +25,11 @@
                   <TextField fx:id="username" layoutX="107.0" layoutY="225.0" onAction="#loginAdmin" prefHeight="30.0" prefWidth="220.0" promptText="Username" styleClass="textfield" stylesheets="@loginDesign.css" />
                   <PasswordField fx:id="password" layoutX="107.0" layoutY="270.0" onAction="#loginAdmin" prefHeight="30.0" prefWidth="220.0" promptText="Password" styleClass="textfield" stylesheets="@loginDesign.css" />
                   <Button fx:id="loginBtn" layoutX="142.0" layoutY="344.0" mnemonicParsing="false" onAction="#loginAdmin" prefHeight="40.0" prefWidth="147.0" styleClass="login-btn" stylesheets="@loginDesign.css" text="Login" />
-                  <FontAwesomeIcon fill="RED" glyphName="CLOSE" layoutX="406.0" layoutY="26.0" size="1.2em" />
+                  <Button layoutX="396.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #2c2c2c; -fx-font-weight: bold;" text="x" textFill="RED">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

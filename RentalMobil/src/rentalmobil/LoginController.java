@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package rentalmobil;
 
 import javafx.fxml.FXML;
@@ -68,7 +63,7 @@ public class LoginController implements Initializable {
             if(username.getText().isEmpty() || password.getText().isEmpty()){
                 alert = new Alert(AlertType.ERROR);
                 alert.setHeaderText(null);
-                alert.setContentText("Please fill all blank fields");
+                alert.setContentText("Username atau Password tidak boleh kosong!");
                 alert.showAndWait();
             }else{
                 if(result.next()){
@@ -77,7 +72,7 @@ public class LoginController implements Initializable {
                     
                     alert = new Alert(AlertType.INFORMATION);
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Login!");
+                    alert.setContentText("Login berhasil!");
                     alert.showAndWait();
 
                     // Menyembunyikan form login
@@ -106,7 +101,7 @@ public class LoginController implements Initializable {
                 }else{
                     alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText(null);
-                    alert.setContentText("Wrong Username/Password");
+                    alert.setContentText("Username atau Password salah!");
                     alert.showAndWait();
                 }
             }

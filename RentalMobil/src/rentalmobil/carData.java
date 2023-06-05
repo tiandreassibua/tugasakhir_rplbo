@@ -12,8 +12,7 @@ public class carData {
     private Date date;
     private String image;
     
-    public carData(Integer carId, String brand, String model
-            , Double price, String status, String image, Date date){
+    public carData(Integer carId, String brand, String model, Double price, String status, String image, Date date){
         this.carId = carId;
         this.brand = brand;
         this.model = model;
