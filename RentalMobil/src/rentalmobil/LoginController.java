@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package carrentalmanagementsystem;
+package rentalmobil;
 
 import java.net.URL;
 import java.sql.Connection;
@@ -27,12 +27,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import rentalmobil.database;
 
-/**
- *
- * @author MarcoMan
- * Youtube Channel: https://www.youtube.com/channel/UCPgcmw0LXToDn49akUEJBkQ
-    Subscribe our Channel, thank you for the support!
- */
+
 public class LoginController implements Initializable {
     
     @FXML
