@@ -5,17 +5,6 @@
  */
 package rentalmobil;
 
-import java.io.File;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -29,16 +18,8 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -48,6 +29,14 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.File;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.*;
 
 public class dashboardController implements Initializable {
 
@@ -251,7 +240,7 @@ public class dashboardController implements Initializable {
             while (result.next()) {
                 sumIncome = result.getDouble("SUM(total)");
             }
-            home_totalIncome.setText("$" + String.valueOf(sumIncome));
+            home_totalIncome.setText("Rp" + String.valueOf(sumIncome));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -580,19 +569,13 @@ public class dashboardController implements Initializable {
     }
 
     public void availableCarSearch() {
-
         FilteredList<rentalmobil.carData> filter = new FilteredList<>(availableCarList, e -> true);
-
         availableCars_search.textProperty().addListener((Observable, oldValue, newValue) -> {
-
             filter.setPredicate(predicateCarData -> {
-
                 if (newValue == null || newValue.isEmpty()) {
                     return true;
                 }
-
                 String searchKey = newValue.toLowerCase();
-
                 if (predicateCarData.getCarId().toString().contains(searchKey)) {
                     return true;
                 } else if (predicateCarData.getBrand().toLowerCase().contains(searchKey)) {
@@ -685,7 +668,7 @@ public class dashboardController implements Initializable {
 
                     prepare.executeUpdate();
 
-                    // SET THE STATUS OF CAR TO NOT AVAILABLE
+                    // Update status mobil
                     String updateCar = "UPDATE car SET status = 'Not Available' WHERE car_id = '"
                             + rent_carId.getSelectionModel().getSelectedItem() + "'";
 
@@ -700,7 +683,7 @@ public class dashboardController implements Initializable {
                     rentCarShowListData();
 
                     rentClear();
-                } // NOW LETS PROCEED TO DASHBOARD FORM : )
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -715,8 +698,8 @@ public class dashboardController implements Initializable {
         rent_gender.getSelectionModel().clearSelection();
         amount = 0;
         balance = 0;
-        rent_balance.setText("$0.0");
-        rent_total.setText("$0.0");
+        rent_balance.setText("Rp0.0");
+        rent_total.setText("Rp0.0");
         rent_amount.setText("");
         rent_carId.getSelectionModel().clearSelection();
         rent_brand.getSelectionModel().clearSelection();
@@ -735,7 +718,7 @@ public class dashboardController implements Initializable {
             result = prepare.executeQuery();
 
             while (result.next()) {
-                // GET THE LAST id and add + 1
+                // Mengambil id terakhir dari database lalu ditambahkan 1
                 customerId = result.getInt("id") + 1;
             }
 
@@ -762,7 +745,7 @@ public class dashboardController implements Initializable {
 
             if (amount >= totalP) {
                 balance = (amount - totalP);
-                rent_balance.setText("$" + String.valueOf(balance));
+                rent_balance.setText("Rp" + String.valueOf(balance));
             } else {
                 alert = new Alert(AlertType.ERROR);
                 alert.setTitle("Error Message");
@@ -858,10 +841,10 @@ public class dashboardController implements Initializable {
             if (result.next()) {
                 price = result.getDouble("price");
             }
-            // price * the count day you want to use the car
+            // Harga * jumlah hari penyewaan
             totalP = (price * countDate);
-            // DISPLAY TOTAL
-            rent_total.setText("$" + String.valueOf(totalP));
+            // Menampilkan total harga
+            rent_total.setText("Rp" + String.valueOf(totalP));
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -885,6 +868,8 @@ public class dashboardController implements Initializable {
 
     }
 
+
+    // Fungsi untuk menampilkan data mobil yang tersedia / Available
     public void rentCarCarId() {
 
         String sql = "SELECT * FROM car WHERE status = 'Available'";
@@ -911,6 +896,7 @@ public class dashboardController implements Initializable {
 
     }
 
+    // Fungsi untuk menampilkan data brand mobil yang tersedia / Available
     public void rentCarBrand() {
 
         String sql = "SELECT * FROM car WHERE car_id = '"
@@ -938,6 +924,7 @@ public class dashboardController implements Initializable {
 
     }
 
+    // Fungsi untuk menampilkan data model mobil yang tersedia / Available
     public void rentCarModel() {
 
         String sql = "SELECT * FROM car WHERE brand = '"
@@ -963,6 +950,7 @@ public class dashboardController implements Initializable {
 
     }
 
+    // Fungsi untuk menampilkan data mobil kedalam tabel
     private ObservableList<rentalmobil.carData> rentCarList;
 
     public void rentCarShowListData() {
@@ -977,13 +965,15 @@ public class dashboardController implements Initializable {
         rent_tableView.setItems(rentCarList);
     }
 
+    // Fungsi untuk menampilkan username pada dashboard
     public void displayUsername() {
         String user = rentalmobil.getData.username;
-        // TO SET THE FIRST LETTER TO BIG LETTER
+        // Membuat huruf pertama menjadi kapital
         username.setText(user.substring(0, 1).toUpperCase() + user.substring(1));
 
     }
 
+    // Fungsi untuk logout
     private double x = 0;
     private double y = 0;
 
@@ -1030,6 +1020,7 @@ public class dashboardController implements Initializable {
         }
     }
 
+    // Fungsi untuk berpindah form/halaman
     public void switchForm(ActionEvent event) {
 
         if (event.getSource() == home_btn) {
@@ -1056,7 +1047,7 @@ public class dashboardController implements Initializable {
             home_btn.setStyle("-fx-background-color:transparent");
             rentCar_btn.setStyle("-fx-background-color:transparent");
 
-            // TO UPDATE YOUR TABLEVIEW ONCE YOU CLICK THE AVAILABLE CAR NAV BUTTON
+            // Memanggil fungsi untuk menampilkan data mobil yang tersedia
             availableCarShowListData();
             availableCarStatusList();
             availableCarSearch();
@@ -1080,10 +1071,12 @@ public class dashboardController implements Initializable {
 
     }
 
+    // Fungsi ketika tombol close diklik
     public void close() {
         System.exit(0);
     }
 
+    // Fungsi ketika tombol minimize diklik
     public void minimize() {
         Stage stage = (Stage) main_form.getScene().getWindow();
         stage.setIconified(true);
@@ -1099,7 +1092,7 @@ public class dashboardController implements Initializable {
         homeIncomeChart();
         homeCustomerChart();
 
-        // TO DISPLAY THE DATA ON THE TABLEVIEW
+        //
         availableCarShowListData();
         availableCarStatusList();
         availableCarSearch();

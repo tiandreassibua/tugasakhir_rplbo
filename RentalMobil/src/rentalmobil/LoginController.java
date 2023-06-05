@@ -5,12 +5,6 @@
  */
 package rentalmobil;
 
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +19,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import rentalmobil.database;
+
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ResourceBundle;
 
 
 public class LoginController implements Initializable {
@@ -44,8 +43,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private Button close;
-    
-//    DATABASE TOOLS
+
+    // Membuat object dari class Database
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
@@ -80,10 +79,11 @@ public class LoginController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Successfully Login!");
                     alert.showAndWait();
-                    // HIDE YOUR LOGIN FORM
+
+                    // Menyembunyikan form login
                     loginBtn.getScene().getWindow().hide();
                     
-                    // LINK YOUR DASHBOARD FORM
+                    // Menampilkan form dashboard
                     Parent root = FXMLLoader.load(getClass().getResource("dashboard.fxml"));
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
