@@ -400,7 +400,7 @@ public class dashboardController implements Initializable {
                 alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("Confirmation Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Are you sure you want to UPDATE Car ID: " + availableCars_carId.getText() + "?");
+                alert.setContentText("Apakah anda yakin ingin mengupdate Car ID: " + availableCars_carId.getText() + "?");
                 Optional<ButtonType> option = alert.showAndWait();
 
                 if (option.get().equals(ButtonType.OK)) {
@@ -410,7 +410,7 @@ public class dashboardController implements Initializable {
                     alert = new Alert(AlertType.INFORMATION);
                     alert.setTitle("Information Message");
                     alert.setHeaderText(null);
-                    alert.setContentText("Successfully Updated!");
+                    alert.setContentText("Update berhasil!");
                     alert.showAndWait();
 
                     availableCarShowListData();
@@ -512,9 +512,7 @@ public class dashboardController implements Initializable {
 
             image = new Image(file.toURI().toString(), 116, 153, false, true);
             availableCars_imageView.setImage(image);
-
         }
-
     }
 
     public ObservableList<rentalmobil.carData> availableCarListData() {
@@ -804,7 +802,7 @@ public class dashboardController implements Initializable {
         } else {
 
             if (rent_dateReturn.getValue().isAfter(rent_dateRented.getValue())) {
-                // COUNT THE DAY
+                // Menghitung selisih hari
                 countDate = rent_dateReturn.getValue().compareTo(rent_dateRented.getValue());
             } else {
                 alert = new Alert(AlertType.ERROR);
@@ -812,7 +810,7 @@ public class dashboardController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Something wrong :3");
                 alert.showAndWait();
-                // INCREASE OF 1 DAY ONCE THE USER CLICKED THE SAME DAY
+                // Menambahkan 1 hari dari tanggal sewa
                 rent_dateReturn.setValue(rent_dateRented.getValue().plusDays(1));
 
             }
@@ -850,73 +848,51 @@ public class dashboardController implements Initializable {
     private String[] genderList = { "Male", "Female", "Others" };
 
     public void rentCarGender() {
-
         List<String> listG = new ArrayList<>();
 
         for (String data : genderList) {
             listG.add(data);
         }
-
         ObservableList listData = FXCollections.observableArrayList(listG);
-
         rent_gender.setItems(listData);
-
     }
 
 
     // Fungsi untuk menampilkan data mobil yang tersedia / Available
     public void rentCarCarId() {
-
         String sql = "SELECT * FROM car WHERE status = 'Available'";
-
         connect = database.connectDb();
-
         try {
             prepare = connect.prepareStatement(sql);
             result = prepare.executeQuery();
-
             ObservableList listData = FXCollections.observableArrayList();
-
             while (result.next()) {
                 listData.add(result.getString("car_id"));
             }
-
             rent_carId.setItems(listData);
-
             rentCarBrand();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     // Fungsi untuk menampilkan data brand mobil yang tersedia / Available
     public void rentCarBrand() {
-
         String sql = "SELECT * FROM car WHERE car_id = '"
                 + rent_carId.getSelectionModel().getSelectedItem() + "'";
-
         connect = database.connectDb();
-
         try {
             prepare = connect.prepareStatement(sql);
             result = prepare.executeQuery();
-
             ObservableList listData = FXCollections.observableArrayList();
-
             while (result.next()) {
                 listData.add(result.getString("brand"));
             }
-
             rent_brand.setItems(listData);
-
             rentCarModel();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     // Fungsi untuk menampilkan data model mobil yang tersedia / Available
@@ -977,14 +953,14 @@ public class dashboardController implements Initializable {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Confirmation Message");
         alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to logout?");
+        alert.setContentText("Anda yakin ingin logout?");
         Optional<ButtonType> option = alert.showAndWait();
         try {
             if (option.get().equals(ButtonType.OK)) {
-                // HIDE YOUR DASHBOARD FORM
+                // Menyembunyikan form dashboard
                 logoutBtn.getScene().getWindow().hide();
 
-                // LINK YOUR LOGIN FORM
+                // Menampilkan form login
                 Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
                 Stage stage = new Stage();
                 Scene scene = new Scene(root);
